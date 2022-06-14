@@ -115,11 +115,11 @@ $Promise.all = function(arg){
         arg.map((value)=>{promises.push($Promise.resolve(value));});
     }
     return new $Promise(function(res, rej){
-        let result = [];
+        let result = Array(arg.length);
         let counter = 0;
-        promises.map((promise)=>{
+        promises.map((promise,i)=>{
             promise.then((data)=>{
-                result.push(data);
+                result[i]=data;
                 counter++;
                 if (counter === promises.length) {
                     res(result);
