@@ -109,7 +109,7 @@ server.delete('/posts', (req, res) => {
 server.delete('/author', (req, res) => {
     const { author } = req.body;
     if (!author ) {
-        return res.status(STATUS_USER_ERROR).json({error: "Informa que falta el parámetro `author`"});
+        return res.status(STATUS_USER_ERROR).json({error: "Informa que falta la ruta `author`"});
     }        
     const postsAuthor = posts.filter(p => p.author === author)
     if (postsAuthor.length === 0) {
